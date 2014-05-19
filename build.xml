@@ -51,10 +51,7 @@
  	 <!-- Generate pmd.xml -->
  	<target name="phpmd">
   		<exec executable="phpmd">
-   			<arg line="${source_comma_sep}
-              xml
-              build/phpmd.xml
-              --reportfile ${basedir}/build/logs/pmd.xml" />
+   			<arg line="${source_comma_sep} xml build/phpmd.xml --reportfile ${basedir}/build/logs/pmd.xml" />
   		</exec>
  	</target>
 
