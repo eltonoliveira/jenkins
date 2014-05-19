@@ -32,18 +32,11 @@
 				<antcall target="pdepend"/>
     			<antcall target="phpmd"/>
    			</sequential>
-			<antcall target="phpcpd"/>
-			<!--<antcall target="phpcs"/>	-->		
+			<antcall target="phpcpd"/>		
 			<antcall target="phploc"/>
 		</parallel>
  	</target>
  	
- 	 <!-- Generate checkstyle.xml -->
-	 <target name="phpcs">
-  		<exec executable="phpcs">
-  			 <arg line="--report=xml --reportfile=/path/to/file.xml ${source} " />
-  		</exec>
- 	</target>
  	
  	<!-- Generate jdepend.xml and software metrics charts -->
  	<target name="pdepend">
@@ -80,4 +73,5 @@
               ${source}" />
   		</exec>
  	</target>
+ 	
 </project>
