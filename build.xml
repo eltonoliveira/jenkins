@@ -28,7 +28,7 @@
  	 <!-- Generate checkstyle.xml -->
 	 <target name="phpcs">
   		<exec executable="phpcs">
-  			 <arg line="--report=xml --report-file=${basedir}/build/logs/summary.xml ${source} " />
+  			 <arg line="--report=xml ${source} " />
   		</exec>
  	</target>
 </project>
