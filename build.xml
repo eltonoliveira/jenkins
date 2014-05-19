@@ -1,6 +1,6 @@
 <project name="zf-ci-demo" default="build" basedir="."> 	
 	 <property name="source" value="module"/>
-	<target name="build" depends="clean,phpunit,phpcs"/>
+	<target name="build" depends="clean,phpunit,pdepend"/>
 	
 	 <target name="clean">
 	  <!-- Clean up -->
@@ -28,7 +28,17 @@
  	 <!-- Generate checkstyle.xml -->
 	 <target name="phpcs">
   		<exec executable="phpcs">
-  			 <arg line="--report=xml ${source} " />
+  			 <arg line="--report=xml --report-file=/path/to/file.xml ${source} " />
+  		</exec>
+ 	</target>
+ 	
+ 	<!-- Generate jdepend.xml and software metrics charts -->
+ 	<target name="pdepend">
+  		<exec executable="pdepend">
+  			 <arg line="--jdepend-xml=${basedir}/build/logs/jdepend.xml
+              --jdepend-chart=${basedir}/build/pdepend/dependencies.svg
+              --overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg
+              ${source}" />
   		</exec>
  	</target>
 </project>
