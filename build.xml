@@ -21,7 +21,7 @@
  	<target name="phpunit">
  		<echo message="Running unit tests with PHPUnit" />
  		<echo message="${basedir}" />
-  		<exec executable="phpunit" failonerror="true" dir="${basedir}/module/Application/test"> 	
+  		<exec executable="phpunit" failonerror="true" > 	
  		</exec>
  	</target>
 </project>
