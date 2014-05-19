@@ -1,6 +1,6 @@
 <project name="zf-ci-demo" default="build" basedir="."> 	
-	
-	<target name="build" depends="clean,phpunit"/>
+	 <property name="source" value="module"/>
+	<target name="build" depends="clean,phpunit,phpcs"/>
 	
 	 <target name="clean">
 	  <!-- Clean up -->
@@ -17,11 +17,18 @@
 	  <mkdir dir="${basedir}/build/logs"/>
 	  <mkdir dir="${basedir}/build/pdepend"/>
 	 </target>
- 	
+	 
  	<target name="phpunit">
  		<echo message="Running unit tests with PHPUnit" />
  		<echo message="${basedir}" />
   		<exec executable="phpunit" failonerror="true" > 	
  		</exec>
+ 	</target>
+ 	
+ 	 <!-- Generate checkstyle.xml -->
+	 <target name="phpcs">
+  		<exec executable="phpcs">
+  			 <arg line="--report=xml --report-file=${basedir}/build/logs/summary.xml ${source} " />
+  		</exec>
  	</target>
 </project>
