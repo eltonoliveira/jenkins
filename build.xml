@@ -1,0 +1,27 @@
+<project name="zf-ci-demo" default="build" basedir="."> 	
+	
+	<target name="build" depends="clean,phpunit"/>
+	
+	 <target name="clean">
+	  <!-- Clean up -->
+	  <delete dir="${basedir}/build/api"/>
+	  <delete dir="${basedir}/build/code-browser"/>
+	  <delete dir="${basedir}/build/coverage"/>
+	  <delete dir="${basedir}/build/logs"/>
+	  <delete dir="${basedir}/build/pdepend"/>
+
+	  <!-- Create build directories -->
+	  <mkdir dir="${basedir}/build/api"/>
+	  <mkdir dir="${basedir}/build/code-browser"/>
+	  <mkdir dir="${basedir}/build/coverage"/>
+	  <mkdir dir="${basedir}/build/logs"/>
+	  <mkdir dir="${basedir}/build/pdepend"/>
+	 </target>
+ 	
+ 	<target name="phpunit">
+ 		<echo message="Running unit tests with PHPUnit" />
+ 		<echo message="${basedir}" />
+  		<exec executable="phpunit" failonerror="true" dir="${basedir}/module/Application/test"> 	
+ 		</exec>
+ 	</target>
+</project>
